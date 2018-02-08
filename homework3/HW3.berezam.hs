@@ -52,7 +52,7 @@ draw p = let (_,ls) = prog p start in toHTML ls
 --   ((Down,(4,5)),Just ((2,3),(4,5)))
 --
 cmd :: Cmd -> State -> (State, Maybe Line)
-cmd (Pen m) (_, pos)     = ((m, pos),Nothing)
+cmd (Pen m) (_,pos)     = ((m, pos),Nothing)
 cmd (Move a b) (m,(x,y)) = if (m == Up) then ((m,(a,b)),Nothing) else ((m,(a,b)),(Just ((x,y),(a,b))))
 
 
